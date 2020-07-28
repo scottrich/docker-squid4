@@ -20,12 +20,12 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get build-dep -y squid && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y wget tar xz-utils libssl-dev
 
-ARG SQUID_VERSION=4.12
+ARG SQUID_VERSION=5.0.3
 
 # TODO: verify the squid download with the signing key
 RUN mkdir /src \
     && cd /src \
-    && wget http://www.squid-cache.org/Versions/v4/squid-$SQUID_VERSION.tar.xz \
+    && wget http://www.squid-cache.org/Versions/v5/squid-$SQUID_VERSION.tar.xz \
     && mkdir squid \
     && tar -C squid --strip-components=1 -xvf squid-$SQUID_VERSION.tar.xz
     
